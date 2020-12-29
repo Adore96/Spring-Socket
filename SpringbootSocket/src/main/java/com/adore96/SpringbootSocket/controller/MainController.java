@@ -22,27 +22,27 @@ import java.util.List;
 @RestController
 @CrossOrigin(value = "http://localhost:4200")
 public class MainController {
-    private static final Logger logger = LoggerFactory.getLogger(MainController.class);
-
-    @Autowired
-    ProductRepo productRepo;
-
-    @RequestMapping("/")
-    public String main(Model model) {
-
-        List<Product> products = productRepo.findAll();
-        List<ProductDataBean> productDataBean = new ArrayList<>();
-
-        for (int i = 0; i < products.size(); i++) {
-            ProductDataBean productDataBean1 = new ProductDataBean();
-
-            productDataBean1.setName(products.get(i).getName().trim());
-            productDataBean1.setDescription(products.get(i).getDescription().trim());
-            productDataBean1.setPrice(String.valueOf(products.get(i).getPid()).trim());
-            productDataBean.add(productDataBean1);
-
-        }
-        model.addAttribute("products", productDataBean);
-        return "Index";
-    }
+//    private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+//
+//    @Autowired
+//    ProductRepo productRepo;
+//
+//    @RequestMapping("/")
+//    public String main(Model model) {
+//
+//        List<Product> products = productRepo.findAll();
+//        List<ProductDataBean> productDataBean = new ArrayList<>();
+//
+//        for (int i = 0; i < products.size(); i++) {
+//            ProductDataBean productDataBean1 = new ProductDataBean();
+//
+//            productDataBean1.setName(products.get(i).getName().trim());
+//            productDataBean1.setDescription(products.get(i).getDescription().trim());
+//            productDataBean1.setPrice(String.valueOf(products.get(i).getPid()).trim());
+//            productDataBean.add(productDataBean1);
+//
+//        }
+//        model.addAttribute("products", productDataBean);
+//        return "Index";
+//    }
 }
