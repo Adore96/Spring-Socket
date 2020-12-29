@@ -1,4 +1,4 @@
-package com.adore96.SpringbootSocket.securityConfig;
+package com.adore96.SpringbootSocket.configuration;
 
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
