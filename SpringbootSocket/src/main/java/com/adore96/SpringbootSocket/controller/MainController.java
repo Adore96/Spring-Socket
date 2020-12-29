@@ -6,6 +6,7 @@ import com.adore96.SpringbootSocket.repository.ProductRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +28,7 @@ public class MainController {
     ProductRepo productRepo;
 
     @RequestMapping("/")
-    public String main() {
+    public String main(Model model) {
 
         List<Product> products = productRepo.findAll();
         List<ProductDataBean> productDataBean = new ArrayList<>();
@@ -38,9 +39,10 @@ public class MainController {
             productDataBean1.setName(products.get(i).getName().trim());
             productDataBean1.setDescription(products.get(i).getDescription().trim());
             productDataBean1.setPrice(String.valueOf(products.get(i).getPid()).trim());
+            productDataBean.add(productDataBean1);
 
         }
-
+        model.addAttribute("products", productDataBean);
         return "Index";
     }
 }
